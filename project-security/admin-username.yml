@@ -1,0 +1,8 @@
+rules:
+- id: project-security-admin-username
+  patterns:
+    - pattern: |
+        "adminUserName": "MxAdmin"
+  message: The default Administrator username should be changed
+  languages: [json]
+  severity: WARNING

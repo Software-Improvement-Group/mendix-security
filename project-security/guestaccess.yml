@@ -1,0 +1,8 @@
+rules:
+- id: project-security-guestaccess
+  patterns:
+    - pattern: |
+        "enableGuestAccess": true
+  message: Allow Anonymous Users should be disabled in Project Security settings
+  languages: [json]
+  severity: WARNING

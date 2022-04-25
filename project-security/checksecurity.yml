@@ -1,0 +1,12 @@
+rules:
+- id: project-security-checksecurity
+  patterns:
+    - pattern: |
+        "checkSecurity": false
+    - pattern-inside: |
+        { "securityLevel": "CheckEverything", ... }
+    - pattern-not-inside: |
+        "userRoles": [ ... ]
+  message: Check Security must be set to Enabled when Security level is set to Production in Project Security settings
+  languages: [json]
+  severity: WARNING
