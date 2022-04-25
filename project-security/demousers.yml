@@ -1,8 +1,0 @@
-rules:
-- id: project-security-demousers
-  patterns:
-    - pattern: |
-        "enableDemoUsers": true,
-  message: Demo users should be disabled in Project Security settings
-  languages: [json]
-  severity: WARNING
