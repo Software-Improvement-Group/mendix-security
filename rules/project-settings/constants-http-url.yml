@@ -1,0 +1,12 @@
+rules:
+  - id: constants-http-url
+    patterns:
+      - pattern-regex: http\://.*
+      - pattern-not-regex: localhost
+      - pattern-not-regex: \.local
+      - pattern-inside: |
+          { ... , "$Type": "Settings$ConstantValue", ... }
+    message: 'Constant with external URL found using the unencrypted HTTP protocol, use https:// instead'
+    languages:
+      - json
+    severity: WARNING

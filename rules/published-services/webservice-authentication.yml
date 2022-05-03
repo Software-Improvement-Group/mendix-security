@@ -1,0 +1,11 @@
+rules:
+  - id: webservice-authentication
+    patterns:
+      - pattern: |
+          "headerAuthentication": "None"
+      - pattern-inside: |
+          { ... , "$Type": "WebServices$VersionedService", ... }
+    message: 'Published WebService found that does not require authentication'
+    languages:
+      - json
+    severity: WARNING

@@ -1,0 +1,14 @@
+rules:
+  - id: rest-authentication
+    patterns:
+      - pattern-either:
+        - pattern: |
+            "authenticationTypes": ["None"]
+        - pattern: |
+            "authenticationTypes": []
+      - pattern-inside: |
+          { ... , "$Type": "Rest$PublishedRestService", ... }
+    message: 'Published REST Service found that does not require authentication'
+    languages:
+      - json
+    severity: WARNING
