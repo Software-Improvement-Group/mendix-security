@@ -1,0 +1,14 @@
+rules:
+  - id: odata-authentication
+    patterns:
+      - pattern-either:
+        - pattern: |
+            "authenticationTypes": ["None"]
+        - pattern: |
+            "authenticationTypes": []
+      - pattern-inside: |
+          { ... , "$Type": "Rest$PublishedODataService", ... }
+    message: 'Published OData Service found that does not require authentication'
+    languages:
+      - json
+    severity: WARNING

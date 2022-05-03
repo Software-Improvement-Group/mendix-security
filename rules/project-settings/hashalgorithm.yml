@@ -1,0 +1,14 @@
+rules:
+- id: runtime-settings-hashalgorithm
+  patterns:
+    - pattern-inside: |
+        "settingsParts": [...]
+    - pattern: |
+        "hashAlgorithm": ...
+    - pattern-not: |
+        "hashAlgorithm": "SSHA256"
+    - pattern-not: |
+        "hashAlgorithm": "BCrypt"
+  message: Use a sufficiently strong hashing algorithm
+  languages: [json]
+  severity: WARNING

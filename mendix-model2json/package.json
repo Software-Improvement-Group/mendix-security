@@ -1,0 +1,17 @@
+{
+  "name": "mendix-model2json",
+  "version": "1.0.0",
+  "description": "Script that queries the Mendix API using the Mendix Model and Platform SDKs and exports the JSON representation of Mendix artifacts",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "mendixmodelsdk": "4.61.0",
+    "mendixplatformsdkv4": "npm:mendixplatformsdk@4.1.1",
+    "mendixplatformsdk": "5.1.0"
+  }
+}

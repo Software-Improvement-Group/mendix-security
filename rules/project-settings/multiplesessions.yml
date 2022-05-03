@@ -1,0 +1,10 @@
+rules:
+- id: runtime-settings-multiplesessions
+  patterns:
+    - pattern-inside: |
+        "settingsParts": [...]
+    - pattern: |
+        "allowUserMultipleSessions": true
+  message: Multiple sessions per user should be disabled in Runtime Settings to prevent users from logging in simultaniously from different clients
+  languages: [json]
+  severity: WARNING
