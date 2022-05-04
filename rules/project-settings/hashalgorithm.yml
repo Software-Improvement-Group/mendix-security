@@ -12,3 +12,5 @@ rules:
   message: Use a sufficiently strong hashing algorithm
   languages: [json]
   severity: WARNING
+  metadata:
+    cwe: cwe-328

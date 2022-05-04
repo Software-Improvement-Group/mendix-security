@@ -8,3 +8,5 @@ rules:
   message: Security level should be set to Production in Project Security settings
   languages: [json]
   severity: WARNING
+  metadata:
+    cwe: cwe-862

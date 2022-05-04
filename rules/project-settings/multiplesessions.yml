@@ -5,6 +5,8 @@ rules:
         "settingsParts": [...]
     - pattern: |
         "allowUserMultipleSessions": true
-  message: Multiple sessions per user should be disabled in Runtime Settings to prevent users from logging in simultaniously from different clients
+  message: Multiple sessions per user should be disabled in Runtime Settings to restrict authentication attempts from different locations
   languages: [json]
   severity: WARNING
+  metadata:
+    cwe: cwe-307

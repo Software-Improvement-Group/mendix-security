@@ -6,3 +6,5 @@ rules:
   message: The default Administrator username should be changed
   languages: [json]
   severity: WARNING
+  metadata:
+    cwe: cwe-1188

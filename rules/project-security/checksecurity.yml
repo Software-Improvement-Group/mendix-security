@@ -10,3 +10,5 @@ rules:
   message: Check Security must be set to Enabled when Security level is set to Production in Project Security settings
   languages: [json]
   severity: WARNING
+  metadata:
+    cwe: cwe-862

@@ -6,3 +6,5 @@ rules:
   message: Demo users should be disabled in Project Security settings
   languages: [json]
   severity: WARNING
+  metadata:
+    cwe: cwe-288

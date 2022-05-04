@@ -9,3 +9,5 @@ rules:
     languages:
       - json
     severity: WARNING
+    metadata:
+      cwe: cwe-306
