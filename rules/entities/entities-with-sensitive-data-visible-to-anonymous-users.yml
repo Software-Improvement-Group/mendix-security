@@ -1,0 +1,78 @@
+rules:
+- id: entities-with-sensitive-data-visible-to-anonymous-users
+  mode: join
+  join:
+    rules:
+      - id: guest-access-module-roles
+        languages: [json]
+        patterns:
+          - pattern-inside: |
+                {
+                  ... ,
+                  "enableGuestAccess": true,
+                  "guestUserRoleName": $PROJECTROLE,
+                  ...
+                }
+          - pattern-inside: |
+                "userRoles": [ ... ]
+          - pattern-inside: |
+                {
+                  ... ,
+                  "name": $PROJECTROLE,
+                  ...
+                }
+          - pattern-inside: |
+                "moduleRoles": [ ... ]
+          - pattern: |
+                "$ROLE"
+      - id: visible-pii-entity-attributes-module-roles
+        languages: [json]
+        patterns:
+          - pattern: "$ROLE"
+          - metavariable-pattern:
+              metavariable: $ROLE
+              patterns:
+                - pattern-regex: (^\".*\"$)
+                - pattern-not-regex: "moduleRoles"
+          - pattern-inside: |
+              {
+                ... ,
+                "$Type": "DomainModels$Entity",
+                ...
+              }
+          - pattern-inside: |
+              {
+                ... ,
+                "$Type": "DomainModels$AccessRule",
+                "memberAccesses": [ ... ,
+                  {
+                      ...,
+                      "attribute": $ATTRIBUTE,
+                      ...,
+                      "accessRights": $ACCESSRIGHTS
+                  }, ... ],
+                ...
+              }
+          - metavariable-pattern:
+              metavariable: $ATTRIBUTE
+              patterns:
+              - pattern-either:
+                  - pattern-regex: .*([fF]irst|[lL]ast|[gG]iven|[pP]re|[fF]amily)[_]?[nN]ame.*
+                  - pattern-regex: .*([bB]irth[_]?[dD]a(y|te)).*
+                  - pattern-regex: .*([eE]mail|[iI][pP]|[hH]ouse|[hH]ome|[pP]ersonal|[pP]rivate)[_]?[aA]dress.*
+                  - pattern-regex: .*([sS]ocial[_]?[sS]ecurity[_]?[nN]umber|[^a-zA-Z0-9][sSbB][sS][nN][^a-zA-Z0-9]).*
+                  - pattern-regex: .*([eE]thnicity|[mM]ar[r]?ied|[dD]ivorced|[rR]eligion|[rR]elationship[_]?[sS]tatus).*
+                  - pattern-regex: .*([^a-zA-Z0-9][sS]exe[^a-zA-Z0-9]|[cC]ountry[_]?[oO]f[_]?[oO]rigin|[mM]obile[_][pP]hone).*
+          - metavariable-pattern:
+              metavariable: $ACCESSRIGHTS
+              patterns:
+              - pattern-regex: "(ReadOnly|ReadWrite)"
+          - pattern-inside: |
+              "moduleRoles": [ ... ]
+    on:
+    - 'guest-access-module-roles.$ROLE == visible-pii-entity-attributes-module-roles.$ROLE'
+  message: Entity attributes contianing privacy-sensitive data found that are accessible to Anonymous users
+  severity: ERROR
+  languages: [json]
+  metadata:
+    cwe: cwe-256
