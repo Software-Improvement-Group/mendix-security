@@ -1,6 +1,6 @@
 # Mendix Security
 
-Mendix Security is an open-source ruleset based on the popular Semgrep format to scan Mendix Model JSON files for common Security Misconfigurations.
+Mendix Security is an open-source ruleset based on the popular [Semgrep](https://github.com/returntocorp/semgrep) format to scan Mendix Model JSON files for common Security Misconfigurations.
 
 # How to run
 
