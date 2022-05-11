@@ -41,7 +41,7 @@ semgrep --config ./rules
 
 | Item | RuleID | Description | Links |
 | --- | --- | --- | --- |
-| Entities | entities-with-sensitive-data-visible-to-anonymous-users | Entity attributes containing privacy-sensitive data were found that are accessible to Anonymous users | [DIVD-2022-00019 - INSECURE MENDIX APPLICATIONS](https://csirt.divd.nl/cases/DIVD-2022-00019/) |
+| Entities | entities-with-sensitive-data-visible-to-anonymous-users | Entity attributes containing privacy-sensitive data were found that are accessible to Anonymous users | [Mendix Documentation](https://docs.mendix.com/howto/security/set-up-anonymous-user-security/)<br/>[DIVD-2022-00019 - Insecure Mendix Applications](https://csirt.divd.nl/cases/DIVD-2022-00019/) |
 | Project Security | admin-password | The default Administrator password should be changed | [Mendix Security Best Practices](https://docs.mendix.com/howto/security/best-practices-security/#9-renaming-the-administrator-user) |
 | Project Security | admin-username | The default Administrator username should be changed | [Mendix Security Best Practices](https://docs.mendix.com/howto/security/best-practices-security/#9-renaming-the-administrator-user) |
 | Project Security | checkeverything | Security level should be set to Production in Project Security settings | [Mendix Documentation](https://docs.mendix.com/refguide/project-security/#security-level) |
