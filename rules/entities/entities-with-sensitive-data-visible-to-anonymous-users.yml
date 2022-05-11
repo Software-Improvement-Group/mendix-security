@@ -71,7 +71,7 @@ rules:
               "moduleRoles": [ ... ]
     on:
     - 'guest-access-module-roles.$ROLE == visible-pii-entity-attributes-module-roles.$ROLE'
-  message: Entity attributes contianing privacy-sensitive data found that are accessible to Anonymous users
+  message: Entity attributes containing privacy-sensitive data found that are accessible to Anonymous users
   severity: ERROR
   languages: [json]
   metadata:
