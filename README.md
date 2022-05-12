@@ -58,3 +58,23 @@ semgrep --config ./rules
 | Published REST Services | rest-authentication | Published REST Service found that does not require authentication | [Mendix Security Best Practices](https://docs.mendix.com/howto/security/best-practices-security/#service-authentication) |
 | Published Web Services | webservice-authentication | Published WebService found that does not require authentication | [Mendix Security Best Practices](https://docs.mendix.com/howto/security/best-practices-security/#service-authentication) |
 
+## Contact information
+
+Feel free to contact [SIG support](mailto:support@softwareimprovementgroup.com) for any questions you might have.
+
+## License
+
+Copyright Software Improvement Group
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+    
