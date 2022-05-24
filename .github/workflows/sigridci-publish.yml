@@ -1,10 +1,11 @@
-
 name: "Publish to Sigrid"
 on:
   push:
-    branches: [$default-branch]
+    branches:
+      - 'main'
 jobs:
   sigridci:
+    name: 'Sigrid CI'
     runs-on: ubuntu-latest
     steps:
     - name: Sigrid CI
